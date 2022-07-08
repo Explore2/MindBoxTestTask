@@ -1,6 +1,6 @@
 ﻿namespace ShapeLib;
 
-public interface Shape
+public interface IShape
 {
     public double Area { get; }
 }

@@ -1,17 +1,12 @@
 ﻿namespace ShapeLib;
 
-public class Circle : Shape
+public class Circle : IShape
 {
-    private double radius;
     /// <summary>
     /// Returns area of circle
     /// </summary>
     public double Area => Math.PI * (Radius * Radius);
-    public double Radius
-    {
-        get => radius;
-        set => radius = value;
-    }
+    public double Radius { get; set; }
 
     public Circle() : this(1)
     {
@@ -20,6 +15,6 @@ public class Circle : Shape
     
     public Circle(double radius)
     {
-        this.Radius = radius;
+        Radius = radius;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace ShapeLib;
 
-public class Triangle : Shape
+public class Triangle : IShape
 {
     private const float Tolerance = 0.0001f;
     private List<double> sides;
@@ -66,7 +66,6 @@ public class Triangle : Shape
     public Triangle(double sideA, double sideB, double sideC)
     {
         Sides = new List<double>{sideA, sideB, sideC}.OrderBy(x => x).ToList();
-        if (!DoesExist) throw new Exception("Triangle does not exist");
     }
 
   
