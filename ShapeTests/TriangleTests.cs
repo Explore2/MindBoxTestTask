@@ -13,19 +13,19 @@ public class TriangleTests
     [Test]
     public void AreaTest()
     {
-        Triangle rightTriangle = new Triangle(3, 4, 5);
-        Assert.That(rightTriangle.Area, Is.EqualTo(6).Within(Delta));
-        Triangle notRightTriangle = new Triangle(4, 8, 6);
-        Assert.That(notRightTriangle.Area, Is.EqualTo(11.619).Within(Delta));
+        Triangle triangle = new Triangle(3, 4, 5);
+        Assert.That(triangle.Area, Is.EqualTo(6).Within(Delta));
+        triangle = new Triangle(4, 8, 6);
+        Assert.That(triangle.Area, Is.EqualTo(11.619).Within(Delta));
     }
 
     [Test]
     public void IsRightTest()
     {
-        Triangle rightTriangle = new Triangle(3, 4, 5);
-        Assert.IsTrue(rightTriangle.IsRight);
-        Triangle notRightTriangle = new Triangle(4, 8, 6);
-        Assert.IsFalse(notRightTriangle.IsRight);
+        Triangle triangle = new Triangle(3, 4, 5);
+        Assert.IsTrue(triangle.IsRight);
+        triangle = new Triangle(4, 8, 6);
+        Assert.IsFalse(triangle.IsRight);
     }
 
     [Test]
@@ -36,7 +36,7 @@ public class TriangleTests
     }
 
     [Test]
-    public void TriangleExistenceTest()
+    public void ExistenceTest()
     {
         //Triangle exists
         try
@@ -62,7 +62,20 @@ public class TriangleTests
         {
             Assert.Pass();
         }
-
+        
+        try
+        {
+            Triangle triangle = new Triangle(-1, 3, 5);
+            Assert.Fail();
+        }
+        catch (AssertionException e)
+        {
+            Assert.Fail();
+        }
+        catch (Exception e)
+        {
+            Assert.Pass();
+        }
     }
 
 }

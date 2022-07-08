@@ -5,7 +5,7 @@ public class Triangle : IShape
     private const float Tolerance = 0.0001f;
     private List<double> sides;
     /// <summary>
-    /// Returns area of triangle
+    /// Counts area of a triangle
     /// </summary>
     public double Area
     {
@@ -18,12 +18,12 @@ public class Triangle : IShape
         }
     }
     /// <summary>
-    /// Returns perimeter of a triangle
+    /// Counts perimeter of a triangle
     /// </summary>
     public double Perimeter => Sides.Sum();
     
     /// <summary>
-    /// Returns true if one of triangle angles is right
+    /// Checks if triangle has a right angle
     /// </summary>
     public bool IsRight
     {
@@ -37,12 +37,13 @@ public class Triangle : IShape
     }
     
     /// <summary>
-    /// Checks whether triangle exists or not
+    /// Checks if triangle does exist
     /// </summary>
     private bool DoesExist
     {
         get
         {
+            if (!sides.TrueForAll(x => x > 0)) return false;
             var hypotenuse = Sides.Max();
             var legs = Sides.Where(x => Math.Abs(x - hypotenuse) > Tolerance).Aggregate(0d, (current, side) => current + (side));
             return hypotenuse < legs;
