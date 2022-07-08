@@ -17,7 +17,9 @@ public class Triangle : Shape
             return Math.Sqrt(halfPerimeter * ret);
         }
     }
-
+    /// <summary>
+    /// Returns perimeter of a triangle
+    /// </summary>
     public double Perimeter => Sides.Sum();
     
     /// <summary>

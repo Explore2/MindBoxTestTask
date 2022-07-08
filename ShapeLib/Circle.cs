@@ -3,9 +3,10 @@
 public class Circle : Shape
 {
     private double radius;
-    
+    /// <summary>
+    /// Returns area of circle
+    /// </summary>
     public double Area => Math.PI * (Radius * Radius);
-
     public double Radius
     {
         get => radius;
